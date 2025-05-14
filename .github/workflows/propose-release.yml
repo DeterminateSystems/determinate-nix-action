@@ -25,10 +25,8 @@ jobs:
       extra-commands-early: |
         nix develop -c ./tools/update-state.sh "v$VERSION"
         git diff || true
-        git add tools/state.json
-        git commit -m "Update the state.json for v$VERSION"
+        git commit -m "Update the state.json for v$VERSION" ./tools/state.json
         nix develop -c ./tools/generate.sh
-        git add README.md action.yml
-        git commit -m "Update README.md and action.yml for v$VERSION"
+        git commit -m "Update README.md and action.yml for v$VERSION" README.md action.yml
         echo "Checking there is no remaining diff..."
         git diff --exit-code
