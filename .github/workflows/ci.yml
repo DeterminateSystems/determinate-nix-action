@@ -1,0 +1,29 @@
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  lints:
+    name: Build
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: "write"
+      contents: "read"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.
+      - run: nix develop -c typos
+        if: success() || failure()
+      - run: nix develop -c ruff check
+        if: success() || failure()
+      - run: nix develop -c ruff format --diff
+        if: success() || failure()
+      - run: nix develop -c shellcheck ./tools/*.sh
+        if: success() || failure()
+      - name: Regenerate the README to make sure it is unchanged
+        run: nix develop -c ./tools/generate.sh
+        if: success() || failure()
+      - name: Assert no changes were made
+        run: git diff --exit-code
+        if: success() || failure()

@@ -1,0 +1,34 @@
+on:
+  release:
+    types:
+      - released
+
+jobs:
+  PushLooseTag:
+    environment: production
+    permissions:
+      id-token: write
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Optionally tag a vMAJOR tag
+        id: check_tag
+        env:
+          VERSION: ${{ github.ref_name }}
+        run: |
+          if ! echo "$VERSION" | grep -q "^v[[:digit:]]\+\.[[:digit:]]\+\.[[:digit:]]\+$"; then
+              echo "version needs to be a version, in x.y.z format."
+              echo "Therefore, not pushing a v<short>"
+              exit 0
+          fi
+
+          shorttag=$(echo "$VERSION" | cut -d'.' -f1)
+          echo "shorttag=$shorttag" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/checkout@v4
+      - name: Create the short tag
+        env:
+          SHORTTAG: ${{ steps.check_tag.outputs.shorttag }}
+        run: |
+          git tag --force "$SHORTTAG"
+          git push --force origin "$SHORTTAG"

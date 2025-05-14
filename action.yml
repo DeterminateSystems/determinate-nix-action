@@ -1,0 +1,131 @@
+{
+    "name": "Install Determinate Nix",
+    "description": "Install Determinate Nix. See: https://docs.determinate.systems",
+    "branding": {
+        "icon": "box",
+        "color": "rainbow"
+    },
+    "inputs": {
+        "extra-conf": {
+            "description": "Extra configuration lines for `/etc/nix/nix.conf` (includes `access-tokens` with `secrets.GITHUB_TOKEN` automatically if `github-token` is set)",
+            "required": false
+        },
+        "github-server-url": {
+            "description": "The URL for the GitHub server, to use with the `github-token` token. Defaults to the current GitHub server, supporting GitHub Enterprise Server automatically. Only change this value if the provided `github-token` is for a different GitHub server than the current server.",
+            "default": "${{ github.server_url }}"
+        },
+        "github-token": {
+            "description": "A GitHub token for making authenticated requests (which have a higher rate-limit quota than unauthenticated requests)",
+            "default": "${{ github.token }}"
+        },
+        "trust-runner-user": {
+            "description": "Whether to make the runner user trusted by the Nix daemon",
+            "default": true
+        },
+        "force-no-systemd": {
+            "description": "Force using other methods than systemd to launch the daemon. This setting is automatically enabled when necessary.",
+            "required": false,
+            "default": false
+        },
+        "init": {
+            "description": "The init system to configure, requires `planner: linux-multi` (allowing the choice between `none` or `systemd`)",
+            "required": false
+        },
+        "kvm": {
+            "description": "Automatically configure the GitHub Actions Runner for NixOS test supports, if the host supports it.",
+            "required": false,
+            "default": true
+        },
+        "planner": {
+            "description": "A planner to use",
+            "required": false
+        },
+        "proxy": {
+            "description": "The proxy to use (if any), valid proxy bases are `https://$URL`, `http://$URL` and `socks5://$URL`",
+            "required": false
+        },
+        "reinstall": {
+            "description": "Force a reinstall if an existing installation is detected (consider backing up `/nix/store`)",
+            "required": false,
+            "default": false
+        },
+        "source-binary": {
+            "description": "Run a version of the nix-installer binary from somewhere already on disk. Conflicts with all other `source-*` options. Intended only for testing this Action.",
+            "required": false
+        },
+        "source-branch": {
+            "description": "The branch of `nix-installer` to use (conflicts with `source-tag`, `source-revision`, `source-pr`)",
+            "required": false
+        },
+        "source-pr": {
+            "description": "The PR of `nix-installer` to use (conflicts with `source-tag`, `source-revision`, `source-branch`)",
+            "required": false
+        },
+        "source-revision": {
+            "description": "The revision of `nix-installer` to use (conflicts with `source-tag`, `source-branch`, `source-pr`)",
+            "required": false
+        },
+        "source-tag": {
+            "description": "The tag of `nix-installer` to use (conflicts with `source-revision`, `source-branch`, `source-pr`)",
+            "required": false,
+            "default": "v3.5.1"
+        },
+        "source-url": {
+            "description": "A URL pointing to a `nix-installer` executable",
+            "required": false
+        },
+        "backtrace": {
+            "description": "The setting for `RUST_BACKTRACE` (see https://doc.rust-lang.org/std/backtrace/index.html#environment-variables)",
+            "required": false
+        },
+        "diagnostic-endpoint": {
+            "description": "Diagnostic endpoint url where the installer sends data to. To disable set this to an empty string.",
+            "required": false,
+            "default": "-"
+        },
+        "log-directives": {
+            "description": "A list of Tracing directives, comma separated, `-`s replaced with `_` (eg. `nix_installer=trace`, see https://docs.rs/tracing-subscriber/latest/tracing_subscriber/filter/struct.EnvFilter.html#directives)",
+            "required": false
+        },
+        "logger": {
+            "description": "The logger to use for install (eg. `pretty`, `json`, `full`, `compact`)",
+            "required": false
+        },
+        "_internal-strict-mode": {
+            "description": "Whether to fail when any errors are thrown. Used only to test the Action; do not set this in your own workflows.",
+            "required": false,
+            "default": false
+        }
+    },
+    "runs": {
+        "using": "composite",
+        "steps": [
+            {
+                "uses": "DeterminateSystems/nix-installer-action@main",
+                "with": {
+                    "extra-conf": "${{ inputs.extra-conf }}",
+                    "github-server-url": "${{ inputs.github-server-url }}",
+                    "github-token": "${{ inputs.github-token }}",
+                    "trust-runner-user": "${{ inputs.trust-runner-user }}",
+                    "force-no-systemd": "${{ inputs.force-no-systemd }}",
+                    "init": "${{ inputs.init }}",
+                    "kvm": "${{ inputs.kvm }}",
+                    "planner": "${{ inputs.planner }}",
+                    "proxy": "${{ inputs.proxy }}",
+                    "reinstall": "${{ inputs.reinstall }}",
+                    "source-binary": "${{ inputs.source-binary }}",
+                    "source-branch": "${{ inputs.source-branch }}",
+                    "source-pr": "${{ inputs.source-pr }}",
+                    "source-revision": "${{ inputs.source-revision }}",
+                    "source-tag": "${{ inputs.source-tag }}",
+                    "source-url": "${{ inputs.source-url }}",
+                    "backtrace": "${{ inputs.backtrace }}",
+                    "diagnostic-endpoint": "${{ inputs.diagnostic-endpoint }}",
+                    "log-directives": "${{ inputs.log-directives }}",
+                    "logger": "${{ inputs.logger }}",
+                    "_internal-strict-mode": "${{ inputs._internal-strict-mode }}"
+                }
+            }
+        ]
+    }
+}

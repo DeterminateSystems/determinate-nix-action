@@ -1,0 +1,5 @@
+{
+  "nix_installer_action_revision": "main",
+  "determinate_nix_tag": "v3.5.1",
+  "checkout_action_tag": "v4.2.1"
+}
