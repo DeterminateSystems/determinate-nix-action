@@ -51,7 +51,7 @@ jobs:
 
 ### Why Pin Your Action?
 
-Unlike `DeterminateSystems/nix-installer-action`, we fully support explicit version pinning for maximum reliability.
+Unlike `DeterminateSystems/nix-installer-action`, we fully support explicit version pinning for maximum consistency.
 This action is **automatically tagged** for every Determinate Nix release, giving you complete control over your CI environment:
 
 📍 Pinning to `DeterminateSystems/determinate-nix-action@<!-- version -->` guarantees:
