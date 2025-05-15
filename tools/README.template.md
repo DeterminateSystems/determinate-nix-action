@@ -1,21 +1,32 @@
-# Determinate Nix Action
+<p align="center">
+  <a href="https://determinate.systems" target="_blank"><img src="https://raw.githubusercontent.com/determinatesystems/.github/main/.github/banner.jpg"></a>
+</p>
+<p align="center">
+  &nbsp;<a href="https://determinate.systems/discord" target="_blank"><img alt="Discord" src="https://img.shields.io/discord/1116012109709463613?style=for-the-badge&logo=discord&logoColor=%23ffffff&label=Discord&labelColor=%234253e8&color=%23e4e2e2"></a>&nbsp;
+  &nbsp;<a href="https://bsky.app/profile/determinate.systems" target="_blank"><img alt="Bluesky" src="https://img.shields.io/badge/Bluesky-0772D8?style=for-the-badge&logo=bluesky&logoColor=%23ffffff"></a>&nbsp;
+  &nbsp;<a href="https://hachyderm.io/@determinatesystems" target="_blank"><img alt="Mastodon" src="https://img.shields.io/badge/Mastodon-6468fa?style=for-the-badge&logo=mastodon&logoColor=%23ffffff"></a>&nbsp;
+  &nbsp;<a href="https://twitter.com/DeterminateSys" target="_blank"><img alt="Twitter" src="https://img.shields.io/badge/Twitter-303030?style=for-the-badge&logo=x&logoColor=%23ffffff"></a>&nbsp;
+  &nbsp;<a href="https://www.linkedin.com/company/determinate-systems" target="_blank"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-1667be?style=for-the-badge&logo=linkedin&logoColor=%23ffffff"></a>&nbsp;
+</p>
+
+# ️❄️ Determinate Nix Action
 
 Determinate is the best way to use Nix on macOS, WSL, and Linux.
 It is an end-to-end toolchain for using Nix, from installation to collaboration to deployment.
 
 Based on the [Determinate Nix Installer](https://github.com/DeterminateSystems/nix-installer) and its corresponding [Nix Installer Action](https://github.com/DeterminateSystems/nix-installer-action), responsible for over tens of thousands of Nix installs daily.
 
-## Supports
+## 🫶 Platform support
 
-- ✅ **Accelerated KVM** on open source projects and larger runners. See [GitHub's announcement](https://github.blog/changelog/2023-02-23-hardware-accelerated-android-virtualization-on-actions-windows-and-linux-larger-hosted-runners/) for more info.
-- ✅ Linux, x86_64, aarch64, and i686
-- ✅ macOS, x86_64 and aarch64
-- ✅ WSL2, x86_64 and aarch64
-- ✅ Containers, ARC, and Act
-- ✅ GitHub Enterprise Server
-- ✅ GitHub Hosted, self-hosted, and long running Actions Runners
+- ⚡ **Accelerated KVM** on open source projects and larger runners. See [GitHub's announcement](https://github.blog/changelog/2023-02-23-hardware-accelerated-android-virtualization-on-actions-windows-and-linux-larger-hosted-runners/) for more info.
+- 🐧 Linux, x86_64, aarch64, and i686
+- 🍏 macOS, x86_64 and aarch64
+- 🪟 WSL2, x86_64 and aarch64
+- 🐋 Containers, ARC, and Act
+- 🐙 GitHub Enterprise Server
+- 💁 GitHub Hosted, self-hosted, and long running Actions Runners
 
-## Usage
+## ️🔧 Usage
 
 ```yaml
 on:
@@ -36,22 +47,28 @@ jobs:
       - run: nix build .
 ```
 
-## Pinning
+## 📌 Version Pinning: Lock It Down!
 
-This action is tagged automatically for every Determinate Nix release.
-Pinning to `DeterminateSystems/determinate-nix-action@<!-- version -->` will always resolve to the same `DeterminateSystems/nix-installer-action` revision and will always install Determinate Nix <!-- version -->.
+### Why Pin Your Action?
 
-This is different from `DeterminateSystems/nix-installer-action`, which does not support explicit pinning.
+Unlike `DeterminateSystems/nix-installer-action`, we fully support explicit version pinning for maximum consistency.
+This action is **automatically tagged** for every Determinate Nix release, giving you complete control over your CI environment:
 
-If your action does not pin to a specific tag and uses `DeterminateSystems/determinate-nix-action@main` your workflows will follow the latest Determinate Nix release, and occasionally participate in phased Determinate Nix releases.
+📍 Pinning to `DeterminateSystems/determinate-nix-action@<!-- version -->` guarantees:
+  - Same `nix-installer-action` revision every time
+  - Consistent Determinate Nix <!-- version --> installation
+  - Reproducible CI workflows, even years later
+
+✨ Using `@main` instead? You'll:
+  - Always get the latest Determinate Nix release
+  - Occasionally participate in phased rollouts (helping us test new releases!)
 
 > [!IMPORTANT]  
-> Make sure to setup Dependabot to stay up to date with Determinate Nix releases.
+> Set up Dependabot to stay current with Determinate Nix releases without sacrificing stability.
 
-### Setting up Dependabot
+### 🤖 Automate Updates with Dependabot
 
-Automatically keep your GitHub actions up to date with Dependabot.
-Create a file in your repository at `.github/dependabot.yml` with the following contents:
+Keep your GitHub actions fresh without manual work! Create `.github/dependabot.yml` with:
 
 ```yaml
 version: 2
@@ -62,14 +79,16 @@ updates:
       interval: "weekly"
 ```
 
-## Configuration
+## ️⚙️ Configuration
 
 <!-- table -->
 
-## Need help?
+## 🛟 Need Help? We're Here For You!
 
-- Open an issue,
-- Join our Discord: https://determinate.systems/discord,
-- Contact us over email: [support@determinate.systems](mailto:support@determinate.systems),
+We're committed to making your experience with Determinate Nix as smooth as possible. If you encounter any issues or have questions, here's how to reach us:
 
-Support contracts and shared slack rooms are available.
+- 🐛 **Found a bug?** [Open an issue](https://github.com/DeterminateSystems/determinate-nix-action/issues/new) on GitHub
+- 💬 **Want to chat?** Join our [Discord community](https://determinate.systems/discord) for quick help and discussions
+- 📧 **Need direct support?** Email us at [support@determinate.systems](mailto:support@determinate.systems)
+
+🤝 **Looking for enterprise support?** We offer dedicated support contracts and shared Slack channels for organizations requiring priority assistance. [Contact us](mailto:support@determinate.systems) to learn more.
