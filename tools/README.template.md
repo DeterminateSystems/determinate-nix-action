@@ -16,7 +16,9 @@ It is an end-to-end toolchain for using Nix, from installation to collaboration 
 
 Based on the [Determinate Nix Installer](https://github.com/DeterminateSystems/nix-installer) and its corresponding [Nix Installer Action](https://github.com/DeterminateSystems/nix-installer-action), responsible for over tens of thousands of Nix installs daily.
 
-> [!NOTE] > **Why a different action?**
+> [!NOTE]
+>
+> **Why a different action?**
 >
 > We created a new action to synchronize version tags to Determinate Nix releases.
 > GitHub Actions are tagged with the specific version, like `v3.5.2`, with a moving `v3` tag for the major version.
