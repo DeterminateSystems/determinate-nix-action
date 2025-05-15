@@ -16,12 +16,19 @@ def make_inputs_table(inputs):
         required = input_options.get("required", False)
         default = input_options.get("default")
 
+        if isinstance(default, bool):
+            default_str = f"`{str(default).lower()}`"
+        elif default is not None:
+            default_str = f"`{default}`"
+        else:
+            default_str = ""
+
         rows.append(
             [
                 f"`{input_name}`",
                 input_options["description"],
                 "📍" if required else "",
-                f"`{default}`" if default is not None else "",
+                default_str,
             ]
         )
 
