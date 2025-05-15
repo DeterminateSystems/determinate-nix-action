@@ -163,6 +163,9 @@ for input_name in keep_inputs:
     except KeyError:
         faults.append(f"Input action is missing this 'keep_inputs' input: {input_name}")
 
+# Turn on Determinate Nix
+nix_install_step["with"]["determinate"] = True
+
 result["runs"]["steps"].append(nix_install_step)
 
 # Delete inputs we specifically do not want to support without a specific and known use case
