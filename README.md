@@ -58,7 +58,7 @@ jobs:
 ```
 
 > [!IMPORTANT]
-> You must add a `permissions` block like the one in the example above or else Determinate Nix won't be able to authenticate with [FlakeHub].
+> If you use [FlakeHub], you need to add a `permissions` block like the one in the example above or else Determinate Nix can't authenticate with FlakeHub or [FlakeHub Cache][cache].
 
 ## 📌 Version Pinning: Lock It Down!
 
@@ -130,4 +130,5 @@ We're committed to making your experience with Determinate Nix as smooth as poss
 
 🤝 **Looking for enterprise support?** We offer dedicated support contracts and shared Slack channels for organizations requiring priority assistance. [Contact us](mailto:support@determinate.systems) to learn more.
 
+[cache]: https://flakehub.com/cache
 [flakehub]: https//flakehub.com
