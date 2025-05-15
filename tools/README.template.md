@@ -89,6 +89,6 @@ We're committed to making your experience with Determinate Nix as smooth as poss
 
 - 🐛 **Found a bug?** [Open an issue](https://github.com/DeterminateSystems/determinate-nix-action/issues/new) on GitHub
 - 💬 **Want to chat?** Join our [Discord community](https://determinate.systems/discord) for quick help and discussions
-- 📧 **Need direct support?** Email us at [`support@determinate.systems`](mailto:support@determinate.systems)
+- 📧 **Need direct support?** Email us at [support@determinate.systems](mailto:support@determinate.systems)
 
 🤝 **Looking for enterprise support?** We offer dedicated support contracts and shared Slack channels for organizations requiring priority assistance. [Contact us](mailto:support@determinate.systems) to learn more.
