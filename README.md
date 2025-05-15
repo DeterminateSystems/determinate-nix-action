@@ -36,6 +36,8 @@ Based on the [Determinate Nix Installer](https://github.com/DeterminateSystems/n
 
 ## ️🔧 Usage
 
+Here's an example Actions workflow configuration that uses `determinate-nix-action`:
+
 ```yaml
 on:
   pull_request:
@@ -43,17 +45,20 @@ on:
     branches: [main]
 
 jobs:
-  lints:
-    name: Build
+  build-pkg:
+    name: Build Nix package
     runs-on: ubuntu-latest
     permissions:
-      id-token: "write"
-      contents: "read"
+      id-token: write
+      contents: read
     steps:
       - uses: actions/checkout@v4.2.2
       - uses: DeterminateSystems/determinate-nix-action@main # or v3.5.2 to pin to a release
       - run: nix build .
 ```
+
+> [!IMPORTANT]
+> You must add a `permissions` block like the one in the example above or else Determinate Nix won't be able to authenticate with [FlakeHub].
 
 ## 📌 Version Pinning: Lock It Down!
 
@@ -124,3 +129,5 @@ We're committed to making your experience with Determinate Nix as smooth as poss
 - 📧 **Need direct support?** Email us at [support@determinate.systems](mailto:support@determinate.systems)
 
 🤝 **Looking for enterprise support?** We offer dedicated support contracts and shared Slack channels for organizations requiring priority assistance. [Contact us](mailto:support@determinate.systems) to learn more.
+
+[flakehub]: https//flakehub.com
