@@ -42,8 +42,8 @@ jobs:
       id-token: "write"
       contents: "read"
     steps:
-      - uses: actions/checkout@v4.2.1
-      - uses: DeterminateSystems/determinate-nix-action@main # or v3.5.1 to pin to a release
+      - uses: actions/checkout@v4.2.2
+      - uses: DeterminateSystems/determinate-nix-action@main # or v3.5.2 to pin to a release
       - run: nix build .
 ```
 
@@ -54,9 +54,9 @@ jobs:
 Unlike `DeterminateSystems/nix-installer-action`, we fully support explicit version pinning for maximum consistency.
 This action is **automatically tagged** for every Determinate Nix release, giving you complete control over your CI environment:
 
-📍 Pinning to `DeterminateSystems/determinate-nix-action@v3.5.1` guarantees:
+📍 Pinning to `DeterminateSystems/determinate-nix-action@v3.5.2` guarantees:
   - Same `nix-installer-action` revision every time
-  - Consistent Determinate Nix v3.5.1 installation
+  - Consistent Determinate Nix v3.5.2 installation
   - Reproducible CI workflows, even years later
 
 ✨ Using `@main` instead? You'll:
@@ -97,7 +97,7 @@ updates:
 | `source-branch`         | The branch of `nix-installer` to use (conflicts with `source-tag`, `source-revision`, `source-pr`)                                                                                                                                                                             |          |                            |
 | `source-pr`             | The PR of `nix-installer` to use (conflicts with `source-tag`, `source-revision`, `source-branch`)                                                                                                                                                                             |          |                            |
 | `source-revision`       | The revision of `nix-installer` to use (conflicts with `source-tag`, `source-branch`, `source-pr`)                                                                                                                                                                             |          |                            |
-| `source-tag`            | The tag of `nix-installer` to use (conflicts with `source-revision`, `source-branch`, `source-pr`)                                                                                                                                                                             |          | `v3.5.1`                   |
+| `source-tag`            | The tag of `nix-installer` to use (conflicts with `source-revision`, `source-branch`, `source-pr`)                                                                                                                                                                             |          | `v3.5.2`                   |
 | `source-url`            | A URL pointing to a `nix-installer` executable                                                                                                                                                                                                                                 |          |                            |
 | `backtrace`             | The setting for `RUST_BACKTRACE` (see https://doc.rust-lang.org/std/backtrace/index.html#environment-variables)                                                                                                                                                                |          |                            |
 | `diagnostic-endpoint`   | Diagnostic endpoint url where the installer sends data to. To disable set this to an empty string.                                                                                                                                                                             |          | `-`                        |
