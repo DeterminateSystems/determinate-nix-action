@@ -16,6 +16,12 @@ It is an end-to-end toolchain for using Nix, from installation to collaboration 
 
 Based on the [Determinate Nix Installer](https://github.com/DeterminateSystems/nix-installer) and its corresponding [Nix Installer Action](https://github.com/DeterminateSystems/nix-installer-action), responsible for over tens of thousands of Nix installs daily.
 
+> [!NOTE] > **Why a different action?**
+>
+> We created a new action to synchronize version tags to Determinate Nix releases.
+> GitHub Actions are tagged with the specific version, like `v3.5.2`, with a moving `v3` tag for the major version.
+> We needed a fresh tag namespace since nix-installer-action already has a `v3` tag.
+
 ## 🫶 Platform support
 
 - ⚡ **Accelerated KVM** on open source projects and larger runners. See [GitHub's announcement](https://github.blog/changelog/2023-02-23-hardware-accelerated-android-virtualization-on-actions-windows-and-linux-larger-hosted-runners/) for more info.
@@ -55,15 +61,17 @@ Unlike `DeterminateSystems/nix-installer-action`, we fully support explicit vers
 This action is **automatically tagged** for every Determinate Nix release, giving you complete control over your CI environment:
 
 📍 Pinning to `DeterminateSystems/determinate-nix-action@v3.5.2` guarantees:
-  - Same `nix-installer-action` revision every time
-  - Consistent Determinate Nix v3.5.2 installation
-  - Reproducible CI workflows, even years later
+
+- Same `nix-installer-action` revision every time
+- Consistent Determinate Nix v3.5.2 installation
+- Reproducible CI workflows, even years later
 
 ✨ Using `@main` instead? You'll:
-  - Always get the latest Determinate Nix release
-  - Occasionally participate in phased rollouts (helping us test new releases!)
 
-> [!IMPORTANT]  
+- Always get the latest Determinate Nix release
+- Occasionally participate in phased rollouts (helping us test new releases!)
+
+> [!IMPORTANT]
 > Set up Dependabot to stay current with Determinate Nix releases without sacrificing stability.
 
 ### 🤖 Automate Updates with Dependabot
