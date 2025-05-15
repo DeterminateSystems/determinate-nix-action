@@ -8,6 +8,7 @@ import sys
 def eprintln(line):
     print(line, file=sys.stderr)
 
+
 def make_inputs_table(inputs):
     headers = ["Parameter", "Description", "Required", "Default"]
     rows = []
