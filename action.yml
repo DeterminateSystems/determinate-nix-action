@@ -123,7 +123,8 @@
                     "diagnostic-endpoint": "${{ inputs.diagnostic-endpoint }}",
                     "log-directives": "${{ inputs.log-directives }}",
                     "logger": "${{ inputs.logger }}",
-                    "_internal-strict-mode": "${{ inputs._internal-strict-mode }}"
+                    "_internal-strict-mode": "${{ inputs._internal-strict-mode }}",
+                    "determinate": true
                 }
             }
         ]
