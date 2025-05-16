@@ -11,18 +11,18 @@
 
 # ️❄️ Determinate Nix Action
 
-Determinate is the best way to use Nix on macOS, WSL, and Linux.
+[Determinate] is the best way to use Nix on macOS, WSL, and Linux.
 It is an end-to-end toolchain for using Nix, from installation to collaboration to deployment.
 
-Based on the [Determinate Nix Installer](https://github.com/DeterminateSystems/nix-installer) and its corresponding [Nix Installer Action](https://github.com/DeterminateSystems/nix-installer-action), responsible for over tens of thousands of Nix installs daily.
+Based on the [Determinate Nix Installer][nix-installer] and its corresponding [Nix Installer Action][nix-installer-action], responsible for over tens of thousands of Nix installs daily.
 
 > [!NOTE]
 >
-> **Why a different action?**
+> **Why a different Action?**
 >
-> We created a new action to synchronize version tags to Determinate Nix releases.
+> We created a new Action to synchronize version tags to [Determinate Nix][det-nix] releases.
 > GitHub Actions are tagged with the specific version, like `v3.5.2`, with a moving `v3` tag for the major version.
-> We needed a fresh tag namespace since nix-installer-action already has a `v3` tag.
+> We needed a fresh tag namespace since `nix-installer-action` already has a `v3` tag.
 
 ## 🫶 Platform support
 
@@ -60,12 +60,12 @@ jobs:
 > [!IMPORTANT]
 > If you use [FlakeHub], you need to add a `permissions` block like the one in the example above or else Determinate Nix can't authenticate with FlakeHub or [FlakeHub Cache][cache].
 
-## 📌 Version Pinning: Lock It Down!
+## 📌 Version pinning: lock it down!
 
-### Why Pin Your Action?
+### Why pin your Action?
 
 Unlike `DeterminateSystems/nix-installer-action`, we fully support explicit version pinning for maximum consistency.
-This action is **automatically tagged** for every Determinate Nix release, giving you complete control over your CI environment:
+This Action is **automatically tagged** for every Determinate Nix release, giving you complete control over your CI environment:
 
 📍 Pinning to `DeterminateSystems/determinate-nix-action@v3.5.2` guarantees:
 
@@ -79,19 +79,19 @@ This action is **automatically tagged** for every Determinate Nix release, givin
 - Occasionally participate in phased rollouts (helping us test new releases!)
 
 > [!IMPORTANT]
-> Set up Dependabot to stay current with Determinate Nix releases without sacrificing stability.
+> Set up [Dependabot] to stay current with Determinate Nix releases without sacrificing stability.
 
-### 🤖 Automate Updates with Dependabot
+### 🤖 Automate updates with Dependabot
 
-Keep your GitHub actions fresh without manual work! Create `.github/dependabot.yml` with:
+Keep your GitHub Actions fresh without manual work! Create `.github/dependabot.yml` with:
 
 ```yaml
 version: 2
 updates:
-  - package-ecosystem: "github-actions"
-    directory: "/"
+  - package-ecosystem: github-actions
+    directory: /
     schedule:
-      interval: "weekly"
+      interval: weekly
 ```
 
 ## ️⚙️ Configuration
@@ -120,7 +120,7 @@ updates:
 | `logger`                | The logger to use for install (eg. `pretty`, `json`, `full`, `compact`)                                                                                                                                                                                                        |          |                            |
 | `_internal-strict-mode` | Whether to fail when any errors are thrown. Used only to test the Action; do not set this in your own workflows.                                                                                                                                                               |          | `false`                    |
 
-## 🛟 Need Help? We're Here For You!
+## 🛟 Need help? We're here for you!
 
 We're committed to making your experience with Determinate Nix as smooth as possible. If you encounter any issues or have questions, here's how to reach us:
 
@@ -131,4 +131,9 @@ We're committed to making your experience with Determinate Nix as smooth as poss
 🤝 **Looking for enterprise support?** We offer dedicated support contracts and shared Slack channels for organizations requiring priority assistance. [Contact us](mailto:support@determinate.systems) to learn more.
 
 [cache]: https://flakehub.com/cache
+[dependabot]: https://github.com/dependabot
+[det-nix]: https://docs.determinate.systems/determinate-nix
+[determinate]: https://docs.determinate.systems
 [flakehub]: https//flakehub.com
+[nix-installer]: https://github.com/DeterminateSystems/nix-installer
+[nix-installer-action]: https://github.com/DeterminateSystems/nix-installer-action
