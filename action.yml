@@ -68,7 +68,7 @@
         "source-tag": {
             "description": "The tag of `nix-installer` to use (conflicts with `source-revision`, `source-branch`, `source-pr`)",
             "required": false,
-            "default": "v3.6.7"
+            "default": "v3.6.8"
         },
         "source-url": {
             "description": "A URL pointing to a `nix-installer` executable",
@@ -101,7 +101,7 @@
         "using": "composite",
         "steps": [
             {
-                "uses": "DeterminateSystems/nix-installer-action@b336b210d0cb834c37359adfc085c405d31b78b8",
+                "uses": "DeterminateSystems/nix-installer-action@41e0dcf2158a3d6eefca89332cc236df1733e8a7",
                 "with": {
                     "extra-conf": "${{ inputs.extra-conf }}",
                     "github-server-url": "${{ inputs.github-server-url }}",
