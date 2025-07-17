@@ -101,7 +101,7 @@
         "using": "composite",
         "steps": [
             {
-                "uses": "DeterminateSystems/nix-installer-action@c723f3a885e3f1d866d91f4f0c33dd44b1fc7c60",
+                "uses": "DeterminateSystems/nix-installer-action@90bb610b90bf290cad97484ba341453bd1cbefea",
                 "with": {
                     "extra-conf": "${{ inputs.extra-conf }}",
                     "github-server-url": "${{ inputs.github-server-url }}",
