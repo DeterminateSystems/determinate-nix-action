@@ -68,7 +68,7 @@
         "source-tag": {
             "description": "The tag of `nix-installer` to use (conflicts with `source-revision`, `source-branch`, `source-pr`)",
             "required": false,
-            "default": "v3.15.0"
+            "default": "v3.15.1"
         },
         "source-url": {
             "description": "A URL pointing to a `nix-installer` executable",
