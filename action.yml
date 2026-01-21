@@ -22,6 +22,10 @@
             "description": "Whether to make the runner user trusted by the Nix daemon",
             "default": true
         },
+        "summarize": {
+            "description": "Whether to add a build summary and timeline chart to the GitHub job summary",
+            "default": true
+        },
         "force-no-systemd": {
             "description": "Force using other methods than systemd to launch the daemon. This setting is automatically enabled when necessary.",
             "required": false,
@@ -68,7 +72,7 @@
         "source-tag": {
             "description": "The tag of `nix-installer` to use (conflicts with `source-revision`, `source-branch`, `source-pr`)",
             "required": false,
-            "default": "v3.15.1"
+            "default": "v3.15.2"
         },
         "source-url": {
             "description": "A URL pointing to a `nix-installer` executable",
@@ -101,12 +105,13 @@
         "using": "composite",
         "steps": [
             {
-                "uses": "DeterminateSystems/nix-installer-action@ab0a9732c6464e5bb81efb82a2103c7d98f0946f",
+                "uses": "DeterminateSystems/nix-installer-action@58e64ed13a4f3f90ba0cba819752b6df4b548da8",
                 "with": {
                     "extra-conf": "${{ inputs.extra-conf }}",
                     "github-server-url": "${{ inputs.github-server-url }}",
                     "github-token": "${{ inputs.github-token }}",
                     "trust-runner-user": "${{ inputs.trust-runner-user }}",
+                    "summarize": "${{ inputs.summarize }}",
                     "force-no-systemd": "${{ inputs.force-no-systemd }}",
                     "init": "${{ inputs.init }}",
                     "kvm": "${{ inputs.kvm }}",
