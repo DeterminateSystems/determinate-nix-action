@@ -59,6 +59,7 @@ keep_inputs = [
     "github-server-url",
     "github-token",
     "trust-runner-user",
+    "summarize",
     # Advanced run-time environment options
     "force-no-systemd",
     "init",
