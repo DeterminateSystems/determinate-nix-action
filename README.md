@@ -53,7 +53,7 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v6.0.1
-      - uses: DeterminateSystems/determinate-nix-action@main # or v3.15.1 to pin to a release
+      - uses: DeterminateSystems/determinate-nix-action@main # or v3.15.2 to pin to a release
       - run: nix build .
 ```
 
@@ -67,10 +67,10 @@ jobs:
 Unlike `DeterminateSystems/nix-installer-action`, we fully support explicit version pinning for maximum consistency.
 This Action is **automatically tagged** for every Determinate Nix release, giving you complete control over your CI environment:
 
-📍 Pinning to `DeterminateSystems/determinate-nix-action@v3.15.1` guarantees:
+📍 Pinning to `DeterminateSystems/determinate-nix-action@v3.15.2` guarantees:
 
 - Same `nix-installer-action` revision every time
-- Consistent Determinate Nix v3.15.1 installation
+- Consistent Determinate Nix v3.15.2 installation
 - Reproducible CI workflows, even years later
 
 ✨ Using `@main` instead? You'll:
@@ -102,6 +102,7 @@ updates:
 | `github-server-url`     | The URL for the GitHub server, to use with the `github-token` token. Defaults to the current GitHub server, supporting GitHub Enterprise Server automatically. Only change this value if the provided `github-token` is for a different GitHub server than the current server. |          | `${{ github.server_url }}` |
 | `github-token`          | A GitHub token for making authenticated requests (which have a higher rate-limit quota than unauthenticated requests)                                                                                                                                                          |          | `${{ github.token }}`      |
 | `trust-runner-user`     | Whether to make the runner user trusted by the Nix daemon                                                                                                                                                                                                                      |          | `true`                     |
+| `summarize`             | Whether to add a build summary and timeline chart to the GitHub job summary                                                                                                                                                                                                    |          | `true`                     |
 | `force-no-systemd`      | Force using other methods than systemd to launch the daemon. This setting is automatically enabled when necessary.                                                                                                                                                             |          | `false`                    |
 | `init`                  | The init system to configure, requires `planner: linux-multi` (allowing the choice between `none` or `systemd`)                                                                                                                                                                |          |                            |
 | `kvm`                   | Automatically configure the GitHub Actions Runner for NixOS test supports, if the host supports it.                                                                                                                                                                            |          | `true`                     |
@@ -112,7 +113,7 @@ updates:
 | `source-branch`         | The branch of `nix-installer` to use (conflicts with `source-tag`, `source-revision`, `source-pr`)                                                                                                                                                                             |          |                            |
 | `source-pr`             | The PR of `nix-installer` to use (conflicts with `source-tag`, `source-revision`, `source-branch`)                                                                                                                                                                             |          |                            |
 | `source-revision`       | The revision of `nix-installer` to use (conflicts with `source-tag`, `source-branch`, `source-pr`)                                                                                                                                                                             |          |                            |
-| `source-tag`            | The tag of `nix-installer` to use (conflicts with `source-revision`, `source-branch`, `source-pr`)                                                                                                                                                                             |          | `v3.15.1`                  |
+| `source-tag`            | The tag of `nix-installer` to use (conflicts with `source-revision`, `source-branch`, `source-pr`)                                                                                                                                                                             |          | `v3.15.2`                  |
 | `source-url`            | A URL pointing to a `nix-installer` executable                                                                                                                                                                                                                                 |          |                            |
 | `backtrace`             | The setting for `RUST_BACKTRACE` (see https://doc.rust-lang.org/std/backtrace/index.html#environment-variables)                                                                                                                                                                |          |                            |
 | `diagnostic-endpoint`   | Diagnostic endpoint url where the installer sends data to. To disable set this to an empty string.                                                                                                                                                                             |          | `-`                        |
