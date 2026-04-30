@@ -1,5 +1,5 @@
 {
-  "nix_installer_action_revision": "92148bb48b9a0c5458c53dd0b368fbfbfbaa3210",
-  "determinate_nix_tag": "v3.18.1",
+  "nix_installer_action_revision": "4a754ab0c192f4d12cf88b5954b9dd13fd2d612e",
+  "determinate_nix_tag": "v3.19.0",
   "checkout_action_tag": "v6.0.2"
 }
