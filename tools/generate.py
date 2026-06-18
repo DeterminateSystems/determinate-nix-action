@@ -74,6 +74,8 @@ keep_inputs = [
     "source-revision",
     "source-tag",
     "source-url",
+    "source-checksums-url",
+    "source-checksums-sha256",
     # debugging
     "backtrace",
     "diagnostic-endpoint",
