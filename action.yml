@@ -72,10 +72,18 @@
         "source-tag": {
             "description": "The tag of `nix-installer` to use (conflicts with `source-revision`, `source-branch`, `source-pr`)",
             "required": false,
-            "default": "v3.21.1"
+            "default": "v3.21.2"
         },
         "source-url": {
             "description": "A URL pointing to a `nix-installer` executable",
+            "required": false
+        },
+        "source-checksums-url": {
+            "description": "URL of a `shasum`-format checksums file listing the SHA-256 of each\n`nix-installer-<arch>-<os>` artifact. Used together with\n`source-checksums-sha256` to verify the downloaded installer.\n",
+            "required": false
+        },
+        "source-checksums-sha256": {
+            "description": "Pinned SHA-256 (hex) of the file served at `source-checksums-url`. Must\nbe set together with `source-checksums-url`.\n",
             "required": false
         },
         "backtrace": {
@@ -105,7 +113,7 @@
         "using": "composite",
         "steps": [
             {
-                "uses": "DeterminateSystems/nix-installer-action@1d87d45818068401a10cf16bdc5f00b24994a83f",
+                "uses": "DeterminateSystems/nix-installer-action@a7ad9c4f0c65208097f4d34f3cfa1913b80cce5c",
                 "with": {
                     "extra-conf": "${{ inputs.extra-conf }}",
                     "github-server-url": "${{ inputs.github-server-url }}",
@@ -124,6 +132,8 @@
                     "source-revision": "${{ inputs.source-revision }}",
                     "source-tag": "${{ inputs.source-tag }}",
                     "source-url": "${{ inputs.source-url }}",
+                    "source-checksums-url": "${{ inputs.source-checksums-url }}",
+                    "source-checksums-sha256": "${{ inputs.source-checksums-sha256 }}",
                     "backtrace": "${{ inputs.backtrace }}",
                     "diagnostic-endpoint": "${{ inputs.diagnostic-endpoint }}",
                     "log-directives": "${{ inputs.log-directives }}",
