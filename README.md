@@ -53,7 +53,7 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v7.0.0
-      - uses: DeterminateSystems/determinate-nix-action@main # or v3.21.5 to pin to a release
+      - uses: DeterminateSystems/determinate-nix-action@main # or v3.21.7 to pin to a release
       - run: nix build .
 ```
 
@@ -67,10 +67,10 @@ jobs:
 Unlike `DeterminateSystems/nix-installer-action`, we fully support explicit version pinning for maximum consistency.
 This Action is **automatically tagged** for every Determinate Nix release, giving you complete control over your CI environment:
 
-📍 Pinning to `DeterminateSystems/determinate-nix-action@v3.21.5` guarantees:
+📍 Pinning to `DeterminateSystems/determinate-nix-action@v3.21.7` guarantees:
 
 - Same `nix-installer-action` revision every time
-- Consistent Determinate Nix v3.21.5 installation
+- Consistent Determinate Nix v3.21.7 installation
 - Reproducible CI workflows, even years later
 
 ✨ Using `@main` instead? You'll:
@@ -113,7 +113,7 @@ updates:
 | `source-branch`           | The branch of `nix-installer` to use (conflicts with `source-tag`, `source-revision`, `source-pr`)                                                                                                                                                                             |          |                            |
 | `source-pr`               | The PR of `nix-installer` to use (conflicts with `source-tag`, `source-revision`, `source-branch`)                                                                                                                                                                             |          |                            |
 | `source-revision`         | The revision of `nix-installer` to use (conflicts with `source-tag`, `source-branch`, `source-pr`)                                                                                                                                                                             |          |                            |
-| `source-tag`              | The tag of `nix-installer` to use (conflicts with `source-revision`, `source-branch`, `source-pr`)                                                                                                                                                                             |          | `v3.21.5`                  |
+| `source-tag`              | The tag of `nix-installer` to use (conflicts with `source-revision`, `source-branch`, `source-pr`)                                                                                                                                                                             |          | `v3.21.7`                  |
 | `source-url`              | A URL pointing to a `nix-installer` executable                                                                                                                                                                                                                                 |          |                            |
 | `source-checksums-url`    | URL of a `shasum`-format checksums file listing the SHA-256 of each
 `nix-installer-<arch>-<os>` artifact. Used together with
