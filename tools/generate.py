@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
 import json
-from pprint import pprint
 import sys
+from pprint import pprint
 
 
 def eprintln(line):
@@ -210,7 +210,7 @@ table = make_inputs_table(result["inputs"])
 
 print("Resulting action:")
 print(json.dumps(result, indent=4))
-print("")
+print()
 print("Readme table:")
 print(table)
 
@@ -231,7 +231,6 @@ with open(readme_template) as fp:
         faults.append(
             f"Replacement template marker `{readme_checkout_action_tag_marker}` is not present in {readme_template}."
         )
-        readme_checkout_action_tag_marker
 
 if len(faults) > 0:
     eprintln("Faults preventing saves:")
