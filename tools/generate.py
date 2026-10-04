@@ -26,7 +26,7 @@ def make_inputs_table(inputs):
         rows.append(
             [
                 f"`{input_name}`",
-                input_options["description"],
+                " ".join(input_options["description"].splitlines()),
                 "📍" if required else "",
                 default_str,
             ]
